@@ -76,6 +76,19 @@
 
     nav a:hover { color: var(--white); }
 
+    nav a.btn-nav {
+      background: var(--tan);
+      color: var(--navy);
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-weight: 700;
+    }
+
+    nav a.btn-nav:hover {
+      background: #e0b97f;
+      color: var(--navy);
+    }
+
     /* HERO */
     .hero {
       background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
@@ -267,6 +280,85 @@
 
     .social-links a:hover { color: var(--white); }
 
+    /* FORMULARI SOCI */
+    .soci-section {
+      background: var(--white);
+      padding: 4rem 2rem;
+    }
+
+    .soci-form {
+      max-width: 560px;
+      margin: 0 auto;
+      background: var(--sand);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+    }
+
+    .soci-form .form-group {
+      margin-bottom: 1.4rem;
+    }
+
+    .soci-form label {
+      display: block;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+    }
+
+    .soci-form input[type="text"],
+    .soci-form input[type="tel"] {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.2s;
+      background: var(--white);
+    }
+
+    .soci-form input:focus {
+      outline: none;
+      border-color: var(--blue);
+    }
+
+    .soci-form .privacy {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      font-size: 0.85rem;
+      color: #555;
+      margin-bottom: 1.5rem;
+    }
+
+    .soci-form .privacy input {
+      margin-top: 3px;
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+
+    .soci-form button {
+      width: 100%;
+      background: var(--navy);
+      color: var(--white);
+      border: none;
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .soci-form button:hover {
+      background: var(--blue);
+      transform: translateY(-2px);
+    }
+
     /* FOOTER */
     footer {
       background: #111;
@@ -296,6 +388,7 @@
     </div>
     <nav>
       <a href="#proposta">La nostra proposta</a>
+      <a href="#soci">Fes-te soci</a>
       <a href="#contacte">Contacte</a>
     </nav>
   </header>
@@ -351,6 +444,36 @@
       </div>
     </section>
   </div>
+
+  <!-- FORMULARI SOCI -->
+  <section class="soci-section" id="soci">
+    <div style="text-align:center; margin-bottom: 2rem;">
+      <h2 class="section-title">Fes-te soci dels Amics Peluts 🐾</h2>
+      <p class="section-sub">Uneix-te a l'associació i ajuda'ns a aconseguir un municipi més pet friendly.</p>
+    </div>
+    <form class="soci-form" action="https://formsubmit.co/rmtextil@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Nova sol·licitud de soci - Amics Peluts">
+        <input type="hidden" name="_next" value="https://amicspeluts.org">
+        <input type="hidden" name="_captcha" value="false">
+      <div class="form-group">
+        <label for="nom">Nom complet *</label>
+        <input type="text" id="nom" name="nom" placeholder="El teu nom i cognoms" required>
+      </div>
+      <div class="form-group">
+        <label for="dni">DNI *</label>
+        <input type="text" id="dni" name="dni" placeholder="12345678A" required>
+      </div>
+      <div class="form-group">
+        <label for="telefon">Telèfon *</label>
+        <input type="tel" id="telefon" name="telefon" placeholder="600 000 000" required>
+      </div>
+      <div class="privacy">
+        <input type="checkbox" id="privacitat" name="privacitat" required>
+        <label for="privacitat">He llegit i accepto la <a href="mailto:info@amicspeluts.org" style="color: var(--blue);">política de privacitat</a>. Les dades facilitades s'utilitzaran únicament per a la gestió de socis de l'Associació Amics Peluts.</label>
+      </div>
+      <button type="submit">Enviar sol·licitud →</button>
+    </form>
+  </section>
 
   <section class="contact" id="contacte">
     <h2>Suma't als Amics Peluts 🐾</h2>
