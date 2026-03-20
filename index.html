@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Amics Peluts — Associació per als animals de companyia de Castell d'Aro, Platja d'Aro i S'Agaró. Defensem el dret dels gossos i els seus propietaris a gaudir del municipi.">
+  <meta name="description" content="Amics Peluts — Associació per als animals de companyia de Castell d'Aro, Platja d'Aro i S'Agaró.">
   <meta property="og:title" content="Amics Peluts — Castell d'Aro, Platja d'Aro i S'Agaró">
-  <meta property="og:description" content="Associació per als animals de companyia de Castell d'Aro, Platja d'Aro i S'Agaró.">
   <meta property="og:image" content="logo.gif">
   <link rel="icon" type="image/png" href="favicon.png">
   <title>Amics Peluts — Castell d'Aro, Platja d'Aro i S'Agaró</title>
@@ -27,6 +26,32 @@
       color: var(--text);
       background: var(--white);
     }
+
+    /* LANGUAGE BAR */
+    .lang-bar {
+      background: #111;
+      text-align: right;
+      padding: 0.35rem 2rem;
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .lang-btn {
+      background: none;
+      border: 1px solid transparent;
+      color: #aaa;
+      font-size: 0.82rem;
+      cursor: pointer;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+
+    .lang-btn:hover { color: #fff; border-color: #555; }
+    .lang-btn.active { color: #fff; border-color: var(--tan); background: rgba(201,169,122,0.15); }
 
     /* HEADER */
     header {
@@ -77,28 +102,17 @@
 
     nav a:hover { color: var(--white); }
 
-    nav a.btn-nav {
-      background: var(--tan);
-      color: var(--navy);
-      padding: 0.4rem 1rem;
-      border-radius: 50px;
-      font-weight: 700;
-    }
-
-    nav a.btn-nav:hover {
-      background: #e0b97f;
-      color: var(--navy);
-    }
-
     /* HERO */
     .hero {
       background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
       color: var(--white);
       text-align: center;
       padding: 3rem 2rem 2.5rem;
+      position: relative;
+      overflow: hidden;
     }
 
-    .hero .paw { font-size: 2.5rem; margin-bottom: 1rem; }
+    .hero > * { position: relative; z-index: 1; }
 
     .hero h2 {
       font-size: clamp(1.8rem, 5vw, 2.8rem);
@@ -130,18 +144,7 @@
       transition: transform 0.2s, background 0.2s;
     }
 
-    .btn:hover {
-      background: #e0b97f;
-      transform: translateY(-2px);
-    }
-
-    /* HERO BG */
-    .hero {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero > * { position: relative; z-index: 1; }
+    .btn:hover { background: #e0b97f; transform: translateY(-2px); }
 
     /* WAVE */
     .wave {
@@ -153,29 +156,7 @@
       margin-top: -1px;
     }
 
-    /* PHOTO STRIP */
-    .photo-strip {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 4px;
-      overflow: hidden;
-    }
-
-    .photo-strip div {
-      height: 180px;
-      background-size: cover;
-      background-position: center;
-      transition: transform 0.4s;
-      overflow: hidden;
-    }
-
-    .photo-strip div:hover { transform: scale(1.04); }
-
-    @media (max-width: 600px) {
-      .photo-strip { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    /* PROPOSTA */
+    /* SECTION */
     .section {
       padding: 4rem 2rem;
       max-width: 900px;
@@ -225,17 +206,7 @@
       margin-bottom: 0.5rem;
     }
 
-    .card p {
-      font-size: 0.9rem;
-      color: #444;
-      line-height: 1.5;
-    }
-
-    /* STRIP */
-    .strip {
-      background: var(--sand);
-      padding: 4rem 2rem;
-    }
+    .card p { font-size: 0.9rem; color: #444; line-height: 1.5; }
 
     /* CONTACT */
     .contact {
@@ -245,26 +216,10 @@
       padding: 4rem 2rem;
     }
 
-    .contact h2 {
-      font-size: 1.8rem;
-      font-weight: 800;
-      margin-bottom: 0.5rem;
-    }
-
-    .contact p {
-      opacity: 0.85;
-      margin-bottom: 1.5rem;
-      font-size: 1rem;
-    }
-
-    .contact a.btn {
-      background: var(--white);
-      color: var(--navy);
-    }
-
-    .contact a.btn:hover {
-      background: var(--lightblue);
-    }
+    .contact h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .contact p { opacity: 0.85; margin-bottom: 1.5rem; font-size: 1rem; }
+    .contact a.btn { background: var(--white); color: var(--navy); }
+    .contact a.btn:hover { background: var(--lightblue); }
 
     .social-links {
       margin-top: 2rem;
@@ -279,17 +234,13 @@
       text-decoration: none;
       font-weight: 600;
       font-size: 0.9rem;
-      letter-spacing: 0.05em;
       transition: color 0.2s;
     }
 
     .social-links a:hover { color: var(--white); }
 
     /* FORMULARI SOCI */
-    .soci-section {
-      background: var(--white);
-      padding: 4rem 2rem;
-    }
+    .soci-section { background: var(--white); padding: 4rem 2rem; }
 
     .soci-form {
       max-width: 560px;
@@ -300,9 +251,7 @@
       box-shadow: 0 2px 16px rgba(0,0,0,0.07);
     }
 
-    .soci-form .form-group {
-      margin-bottom: 1.4rem;
-    }
+    .soci-form .form-group { margin-bottom: 1.4rem; }
 
     .soci-form label {
       display: block;
@@ -313,7 +262,8 @@
     }
 
     .soci-form input[type="text"],
-    .soci-form input[type="tel"] {
+    .soci-form input[type="tel"],
+    .soci-form textarea {
       width: 100%;
       padding: 0.75rem 1rem;
       border: 2px solid #ddd;
@@ -324,10 +274,10 @@
       background: var(--white);
     }
 
-    .soci-form input:focus {
-      outline: none;
-      border-color: var(--blue);
-    }
+    .soci-form input:focus,
+    .soci-form textarea:focus { outline: none; border-color: var(--blue); }
+
+    .soci-form textarea { resize: vertical; }
 
     .soci-form .privacy {
       display: flex;
@@ -359,10 +309,7 @@
       transition: background 0.2s, transform 0.2s;
     }
 
-    .soci-form button:hover {
-      background: var(--blue);
-      transform: translateY(-2px);
-    }
+    .soci-form button:hover { background: var(--blue); transform: translateY(-2px); }
 
     /* FOOTER */
     footer {
@@ -378,10 +325,20 @@
     @media (max-width: 600px) {
       nav { display: none; }
       .hero { padding: 3.5rem 1.5rem 3rem; }
+      .lang-bar { justify-content: center; }
     }
   </style>
 </head>
 <body>
+
+  <!-- LANGUAGE BAR -->
+  <div class="lang-bar">
+    <button class="lang-btn active" onclick="setLang('ca')">🏴 Català</button>
+    <button class="lang-btn" onclick="setLang('es')">🇪🇸 Español</button>
+    <button class="lang-btn" onclick="setLang('en')">🇬🇧 English</button>
+    <button class="lang-btn" onclick="setLang('fr')">🇫🇷 Français</button>
+    <button class="lang-btn" onclick="setLang('ru')">🇷🇺 Русский</button>
+  </div>
 
   <header>
     <div class="logo-wrap">
@@ -392,19 +349,19 @@
       </div>
     </div>
     <nav>
-      <a href="#proposta">La nostra proposta</a>
-      <a href="#soci">Fes-te soci</a>
-      <a href="#contacte">Contacte</a>
+      <a href="#proposta" data-i18n="nav_proposals">La nostra proposta</a>
+      <a href="#soci" data-i18n="nav_join">Fes-te soci</a>
+      <a href="#contacte" data-i18n="nav_contact">Contacte</a>
     </nav>
   </header>
 
   <section class="hero">
     <img src="logo.png" alt="Amics Peluts" style="width:150px; height:150px; border-radius:50%; margin-bottom:1rem; box-shadow: 0 4px 24px rgba(0,0,0,0.3);">
-    <h2>La veu dels nostres Peluts,<br>la nostra responsabilitat</h2>
-    <p>Som l'Associació Amics dels Peluts de Castell d'Aro, Platja d'Aro i S'Agaró. Treballem perquè gossos i persones puguin gaudir dels espais públics i les platges, i per fomentar una convivència respectuosa al municipi.</p>
+    <h2 data-i18n="hero_title">La veu dels nostres Peluts,<br>la nostra responsabilitat</h2>
+    <p data-i18n="hero_text">Som l'Associació Amics dels Peluts de Castell d'Aro, Platja d'Aro i S'Agaró. Treballem perquè gossos i persones puguin gaudir dels espais públics i les platges, i per fomentar una convivència respectuosa al municipi.</p>
     <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
-      <a href="#proposta" class="btn">Descobreix les nostres propostes</a>
-      <a href="#soci" class="btn" style="background:var(--white); color:var(--navy);">Participa 🐾</a>
+      <a href="#proposta" class="btn" data-i18n="hero_btn1">Descobreix les nostres propostes</a>
+      <a href="#soci" class="btn" style="background:var(--white); color:var(--navy);" data-i18n="hero_btn2">Participa 🐾</a>
     </div>
   </section>
 
@@ -412,77 +369,75 @@
     <div class="wave"></div>
   </div>
 
-  <!-- PHOTO STRIP -->
   <div style="overflow:hidden; line-height:0;">
     <img src="grid-platges.jpg" alt="Gossos i persones a la platja" style="width:100%; display:block;">
   </div>
 
   <div style="background: var(--sand); padding: 0.1px 0;">
     <section class="section" id="proposta">
-      <h2 class="section-title">Per una millor convivència al municipi</h2>
-      <p class="section-sub">Una proposta útil, realista i pensada per a tothom.</p>
+      <h2 class="section-title" data-i18n="proposals_title">Per una millor convivència al municipi</h2>
+      <p class="section-sub" data-i18n="proposals_sub">Una proposta útil, realista i pensada per a tothom.</p>
       <div class="cards">
         <div class="card">
           <div class="icon">🏖️</div>
-          <h3>Zona canina a la Platja del Port</h3>
-          <p>Un espai delimitat i equipat perquè gossos i persones puguin compartir, córrer i banyar-se amb seguretat, respectant la resta d'usos de la platja.</p>
+          <h3 data-i18n="card1_title">Zona canina a la Platja del Port</h3>
+          <p data-i18n="card1_text">Un espai delimitat i equipat perquè gossos i persones puguin compartir, córrer i banyar-se amb seguretat, respectant la resta d'usos de la platja.</p>
         </div>
         <div class="card">
           <div class="icon">💧</div>
-          <h3>Funcionament de les fonts públiques</h3>
-          <p>Millorar el funcionament i manteniment de les fonts del municipi, amb aigua disponible durant tot l'any, i incorporar punts de beguda adaptats per a gossos, separats de l'ús de les persones.</p>
+          <h3 data-i18n="card2_title">Funcionament de les fonts públiques</h3>
+          <p data-i18n="card2_text">Millorar el funcionament i manteniment de les fonts del municipi, amb aigua disponible durant tot l'any, i incorporar punts de beguda adaptats per a gossos, separats de l'ús de les persones.</p>
         </div>
         <div class="card">
           <div class="icon">🏆</div>
-          <h3>Bandera Blava preservada</h3>
-          <p>La nostra proposta és compatible al 100% amb els criteris ADEAC. La Platja Gran manté el seu distintiu intacte.</p>
+          <h3 data-i18n="card3_title">Bandera Blava preservada</h3>
+          <p data-i18n="card3_text">La nostra proposta és compatible al 100% amb els criteris ADEAC. La Platja Gran manté el seu distintiu intacte.</p>
         </div>
         <div class="card">
           <div class="icon">📈</div>
-          <h3>Turisme de major poder adquisitiu</h3>
-          <p>El turisme pet friendly gasta un 52% més que el turista convencional. Cap municipi entre Blanes i Palamós ofereix platja canina.</p>
+          <h3 data-i18n="card4_title">Turisme de major poder adquisitiu</h3>
+          <p data-i18n="card4_text">El turisme pet friendly gasta un 52% més que el turista convencional. Cap municipi entre Blanes i Palamós ofereix platja canina.</p>
         </div>
       </div>
     </section>
   </div>
 
-  <!-- FORMULARI SOCI -->
   <section class="soci-section" id="soci">
     <div style="text-align:center; margin-bottom: 2rem;">
-      <h2 class="section-title">Fes-te soci dels Amics Peluts 🐾</h2>
-      <p class="section-sub">Uneix-te a l'associació i ajuda'ns a aconseguir un municipi més pet friendly.</p>
+      <h2 class="section-title" data-i18n="form_title">Fes-te soci dels Amics Peluts 🐾</h2>
+      <p class="section-sub" data-i18n="form_sub">Uneix-te a l'associació i ajuda'ns a aconseguir un municipi més pet friendly.</p>
     </div>
     <form class="soci-form" action="https://formsubmit.co/info@amicspeluts.org" method="POST">
-        <input type="hidden" name="_subject" value="Nova sol·licitud de soci - Amics Peluts">
-        <input type="hidden" name="_next" value="https://amicspeluts.org">
-        <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_subject" value="Nova sol·licitud de soci - Amics Peluts">
+      <input type="hidden" name="_next" value="https://amicspeluts.org">
+      <input type="hidden" name="_captcha" value="false">
       <div class="form-group">
-        <label for="nom">Nom complet *</label>
-        <input type="text" id="nom" name="nom" placeholder="El teu nom i cognoms" required>
+        <label for="nom" data-i18n="form_name">Nom complet *</label>
+        <input type="text" id="nom" name="nom" data-i18n-ph="form_name_ph" placeholder="El teu nom i cognoms" required>
       </div>
       <div class="form-group">
         <label for="dni">DNI *</label>
         <input type="text" id="dni" name="dni" placeholder="12345678A" required>
       </div>
       <div class="form-group">
-        <label for="telefon">Telèfon *</label>
+        <label for="telefon" data-i18n="form_phone">Telèfon *</label>
         <input type="tel" id="telefon" name="telefon" placeholder="600 000 000" required>
       </div>
       <div class="form-group">
-        <label for="comentaris">Ens encanta escoltar-te 💬</label>
-        <textarea id="comentaris" name="comentaris" placeholder="Suggeriments, comentaris, idees... el que vulguis!" rows="4" style="width:100%; padding:0.75rem 1rem; border:2px solid #ddd; border-radius:10px; font-size:1rem; font-family:inherit; resize:vertical; background:var(--white); transition:border-color 0.2s;"></textarea>
+        <label for="comentaris" data-i18n="form_comments">Ens encanta escoltar-te 💬</label>
+        <textarea id="comentaris" name="comentaris" data-i18n-ph="form_comments_ph" placeholder="Suggeriments, comentaris, idees... el que vulguis!" rows="4"></textarea>
       </div>
       <div class="privacy">
         <input type="checkbox" id="privacitat" name="privacitat" required>
-        <label for="privacitat">He llegit i accepto la <a href="mailto:info@amicspeluts.org" style="color: var(--blue);">política de privacitat</a>. Les dades facilitades s'utilitzaran únicament per a la gestió de socis de l'Associació Amics Peluts.</label>
+        <label for="privacitat" data-i18n="form_privacy">He llegit i accepto la <a href="mailto:info@amicspeluts.org" style="color: var(--blue);">política de privacitat</a>. Les dades facilitades s'utilitzaran únicament per a la gestió de socis de l'Associació Amics Peluts.</label>
       </div>
-      <button type="submit">Enviar sol·licitud →</button>
+      <button type="submit" data-i18n="form_submit">Enviar sol·licitud →</button>
     </form>
   </section>
 
   <section class="contact" id="contacte">
-    <h2>Suma't als Amics Peluts 🐾</h2>
-    <p>Tens un gos a Castell d'Aro, Platja d'Aro i S'Agaró? Vols que el municipi sigui més pet friendly? Escriu-nos.</p>
+    <h2 data-i18n="contact_title">Suma't als Amics Peluts 🐾</h2>
+    <p data-i18n="contact_text">Tens un gos a Castell d'Aro, Platja d'Aro i S'Agaró? Vols que el municipi sigui més pet friendly? Escriu-nos.</p>
     <a href="mailto:info@amicspeluts.org" class="btn">info@amicspeluts.org</a>
     <div class="social-links">
       <a href="https://instagram.com/amicspeluts" target="_blank">📸 Instagram</a>
@@ -493,6 +448,181 @@
   <footer>
     <p>© 2025 Associació Amics Peluts · Castell d'Aro, Platja d'Aro i S'Agaró · <a href="mailto:info@amicspeluts.org">info@amicspeluts.org</a></p>
   </footer>
+
+  <script>
+    const translations = {
+      ca: {
+        nav_proposals: "La nostra proposta",
+        nav_join: "Fes-te soci",
+        nav_contact: "Contacte",
+        hero_title: "La veu dels nostres Peluts,<br>la nostra responsabilitat",
+        hero_text: "Som l'Associació Amics dels Peluts de Castell d'Aro, Platja d'Aro i S'Agaró. Treballem perquè gossos i persones puguin gaudir dels espais públics i les platges, i per fomentar una convivència respectuosa al municipi.",
+        hero_btn1: "Descobreix les nostres propostes",
+        hero_btn2: "Participa 🐾",
+        proposals_title: "Per una millor convivència al municipi",
+        proposals_sub: "Una proposta útil, realista i pensada per a tothom.",
+        card1_title: "Zona canina a la Platja del Port",
+        card1_text: "Un espai delimitat i equipat perquè gossos i persones puguin compartir, córrer i banyar-se amb seguretat, respectant la resta d'usos de la platja.",
+        card2_title: "Funcionament de les fonts públiques",
+        card2_text: "Millorar el funcionament i manteniment de les fonts del municipi, amb aigua disponible durant tot l'any, i incorporar punts de beguda adaptats per a gossos, separats de l'ús de les persones.",
+        card3_title: "Bandera Blava preservada",
+        card3_text: "La nostra proposta és compatible al 100% amb els criteris ADEAC. La Platja Gran manté el seu distintiu intacte.",
+        card4_title: "Turisme de major poder adquisitiu",
+        card4_text: "El turisme pet friendly gasta un 52% més que el turista convencional. Cap municipi entre Blanes i Palamós ofereix platja canina.",
+        form_title: "Fes-te soci dels Amics Peluts 🐾",
+        form_sub: "Uneix-te a l'associació i ajuda'ns a aconseguir un municipi més pet friendly.",
+        form_name: "Nom complet *",
+        form_name_ph: "El teu nom i cognoms",
+        form_phone: "Telèfon *",
+        form_comments: "Ens encanta escoltar-te 💬",
+        form_comments_ph: "Suggeriments, comentaris, idees... el que vulguis!",
+        form_privacy: "He llegit i accepto la <a href=\"mailto:info@amicspeluts.org\" style=\"color:var(--blue)\">política de privacitat</a>. Les dades facilitades s'utilitzaran únicament per a la gestió de socis de l'Associació Amics Peluts.",
+        form_submit: "Enviar sol·licitud →",
+        contact_title: "Suma't als Amics Peluts 🐾",
+        contact_text: "Tens un gos a Castell d'Aro, Platja d'Aro i S'Agaró? Vols que el municipi sigui més pet friendly? Escriu-nos."
+      },
+      es: {
+        nav_proposals: "Nuestra propuesta",
+        nav_join: "Hazte socio",
+        nav_contact: "Contacto",
+        hero_title: "La voz de nuestras mascotas,<br>nuestra responsabilidad",
+        hero_text: "Somos la Asociación Amics Peluts de Castell d'Aro, Platja d'Aro i S'Agaró. Trabajamos para que perros y personas puedan disfrutar de los espacios públicos y las playas, y para fomentar una convivencia respetuosa en el municipio.",
+        hero_btn1: "Descubre nuestras propuestas",
+        hero_btn2: "Participa 🐾",
+        proposals_title: "Por una mejor convivencia en el municipio",
+        proposals_sub: "Una propuesta útil, realista y pensada para todos.",
+        card1_title: "Zona canina en la Playa del Port",
+        card1_text: "Un espacio delimitado y equipado para que perros y personas puedan compartir, correr y bañarse con seguridad, respetando el resto de usos de la playa.",
+        card2_title: "Funcionamiento de las fuentes públicas",
+        card2_text: "Mejorar el funcionamiento y mantenimiento de las fuentes del municipio, con agua disponible todo el año, e incorporar puntos de bebida adaptados para perros, separados del uso de las personas.",
+        card3_title: "Bandera Azul preservada",
+        card3_text: "Nuestra propuesta es compatible al 100% con los criterios ADEAC. La Playa Grande mantiene su distintivo intacto.",
+        card4_title: "Turismo de mayor poder adquisitivo",
+        card4_text: "El turismo pet friendly gasta un 52% más que el turista convencional. Ningún municipio entre Blanes y Palamós ofrece playa canina.",
+        form_title: "Hazte socio de Amics Peluts 🐾",
+        form_sub: "Únete a la asociación y ayúdanos a conseguir un municipio más pet friendly.",
+        form_name: "Nombre completo *",
+        form_name_ph: "Tu nombre y apellidos",
+        form_phone: "Teléfono *",
+        form_comments: "Nos encanta escucharte 💬",
+        form_comments_ph: "Sugerencias, comentarios, ideas... ¡lo que quieras!",
+        form_privacy: "He leído y acepto la <a href=\"mailto:info@amicspeluts.org\" style=\"color:var(--blue)\">política de privacidad</a>. Los datos facilitados se utilizarán únicamente para la gestión de socios de la Asociación Amics Peluts.",
+        form_submit: "Enviar solicitud →",
+        contact_title: "Únete a Amics Peluts 🐾",
+        contact_text: "¿Tienes un perro en Castell d'Aro, Platja d'Aro o S'Agaró? ¿Quieres que el municipio sea más pet friendly? Escríbenos."
+      },
+      en: {
+        nav_proposals: "Our proposal",
+        nav_join: "Join us",
+        nav_contact: "Contact",
+        hero_title: "The voice of our pets,<br>our responsibility",
+        hero_text: "We are the Amics Peluts Association of Castell d'Aro, Platja d'Aro and S'Agaró. We work so that dogs and people can enjoy public spaces and beaches, and to promote respectful coexistence in the municipality.",
+        hero_btn1: "Discover our proposals",
+        hero_btn2: "Get involved 🐾",
+        proposals_title: "For better coexistence in the municipality",
+        proposals_sub: "A useful, realistic proposal designed for everyone.",
+        card1_title: "Dog-friendly beach at Platja del Port",
+        card1_text: "A designated, equipped area where dogs and people can share, run and swim safely, respecting the other uses of the beach.",
+        card2_title: "Public drinking fountains",
+        card2_text: "Improve the operation and maintenance of the municipality's fountains, with water available year-round, and add dog-friendly drinking points separate from human use.",
+        card3_title: "Blue Flag preserved",
+        card3_text: "Our proposal is 100% compatible with ADEAC criteria. The main beach keeps its Blue Flag intact.",
+        card4_title: "Higher-spending tourism",
+        card4_text: "Pet-friendly tourists spend 52% more than conventional tourists. No municipality between Blanes and Palamós offers a dog beach.",
+        form_title: "Join Amics Peluts 🐾",
+        form_sub: "Become a member and help us make our municipality more pet friendly.",
+        form_name: "Full name *",
+        form_name_ph: "Your first and last name",
+        form_phone: "Phone *",
+        form_comments: "We'd love to hear from you 💬",
+        form_comments_ph: "Suggestions, comments, ideas... anything you'd like to share!",
+        form_privacy: "I have read and accept the <a href=\"mailto:info@amicspeluts.org\" style=\"color:var(--blue)\">privacy policy</a>. The data provided will be used solely for membership management of the Amics Peluts Association.",
+        form_submit: "Submit application →",
+        contact_title: "Join Amics Peluts 🐾",
+        contact_text: "Do you have a dog in Castell d'Aro, Platja d'Aro or S'Agaró? Want the municipality to be more pet friendly? Write to us."
+      },
+      fr: {
+        nav_proposals: "Notre proposition",
+        nav_join: "Adhérer",
+        nav_contact: "Contact",
+        hero_title: "La voix de nos animaux,<br>notre responsabilité",
+        hero_text: "Nous sommes l'association Amics Peluts de Castell d'Aro, Platja d'Aro et S'Agaró. Nous travaillons pour que chiens et personnes puissent profiter des espaces publics et des plages, et pour favoriser une cohabitation respectueuse dans la commune.",
+        hero_btn1: "Découvrez nos propositions",
+        hero_btn2: "Participer 🐾",
+        proposals_title: "Pour une meilleure cohabitation dans la commune",
+        proposals_sub: "Une proposition utile, réaliste et pensée pour tous.",
+        card1_title: "Zone canine à la Platja del Port",
+        card1_text: "Un espace délimité et équipé pour que chiens et personnes puissent partager, courir et se baigner en toute sécurité, dans le respect des autres usages de la plage.",
+        card2_title: "Fontaines publiques accessibles",
+        card2_text: "Améliorer le fonctionnement et l'entretien des fontaines de la commune, avec de l'eau disponible toute l'année, et intégrer des points d'abreuvement adaptés aux chiens, séparés de l'usage humain.",
+        card3_title: "Pavillon Bleu préservé",
+        card3_text: "Notre proposition est compatible à 100% avec les critères ADEAC. La grande plage conserve son label intact.",
+        card4_title: "Tourisme à plus fort pouvoir d'achat",
+        card4_text: "Le tourisme pet friendly dépense 52% de plus que le touriste conventionnel. Aucune commune entre Blanes et Palamós ne propose de plage canine.",
+        form_title: "Rejoignez Amics Peluts 🐾",
+        form_sub: "Devenez membre et aidez-nous à rendre notre commune plus pet friendly.",
+        form_name: "Nom complet *",
+        form_name_ph: "Votre prénom et nom de famille",
+        form_phone: "Téléphone *",
+        form_comments: "Nous adorons vous écouter 💬",
+        form_comments_ph: "Suggestions, commentaires, idées... tout ce que vous voulez !",
+        form_privacy: "J'ai lu et j'accepte la <a href=\"mailto:info@amicspeluts.org\" style=\"color:var(--blue)\">politique de confidentialité</a>. Les données fournies seront utilisées uniquement pour la gestion des membres de l'Association Amics Peluts.",
+        form_submit: "Envoyer la demande →",
+        contact_title: "Rejoignez Amics Peluts 🐾",
+        contact_text: "Vous avez un chien à Castell d'Aro, Platja d'Aro ou S'Agaró ? Vous souhaitez que la commune soit plus pet friendly ? Écrivez-nous."
+      },
+      ru: {
+        nav_proposals: "Наше предложение",
+        nav_join: "Вступить",
+        nav_contact: "Контакт",
+        hero_title: "Голос наших питомцев —<br>наша ответственность",
+        hero_text: "Мы — ассоциация Amics Peluts из Кастель-д'Аро, Плайя-д'Аро и С'Агаро. Мы работаем над тем, чтобы собаки и люди могли пользоваться общественными пространствами и пляжами, и продвигаем культуру уважительного сосуществования в муниципалитете.",
+        hero_btn1: "Узнайте о наших предложениях",
+        hero_btn2: "Участвовать 🐾",
+        proposals_title: "За лучшее сосуществование в муниципалитете",
+        proposals_sub: "Полезное, реалистичное предложение, разработанное для всех.",
+        card1_title: "Зона для собак на пляже Платья-дель-Порт",
+        card1_text: "Специально отведённое оборудованное пространство, где собаки и люди могут вместе бегать и купаться в безопасности, не мешая другим пользователям пляжа.",
+        card2_title: "Работа общественных фонтанов",
+        card2_text: "Улучшить работу и обслуживание городских фонтанов, обеспечить доступность воды круглый год и установить поилки для собак, отдельные от питьевых фонтанов для людей.",
+        card3_title: "Голубой флаг сохранён",
+        card3_text: "Наше предложение на 100% соответствует критериям ADEAC. Главный пляж сохраняет свой знак отличия нетронутым.",
+        card4_title: "Туризм с более высокими расходами",
+        card4_text: "Туристы с домашними животными тратят на 52% больше, чем обычные туристы. Ни один муниципалитет между Бланесом и Паламосом не предлагает пляж для собак.",
+        form_title: "Вступайте в Amics Peluts 🐾",
+        form_sub: "Станьте членом ассоциации и помогите нам сделать муниципалитет более дружелюбным к домашним животным.",
+        form_name: "Полное имя *",
+        form_name_ph: "Ваше имя и фамилия",
+        form_phone: "Телефон *",
+        form_comments: "Мы рады вас слышать 💬",
+        form_comments_ph: "Предложения, комментарии, идеи... всё, что хотите!",
+        form_privacy: "Я прочитал(а) и принимаю <a href=\"mailto:info@amicspeluts.org\" style=\"color:var(--blue)\">политику конфиденциальности</a>. Предоставленные данные будут использоваться исключительно для управления членством в ассоциации Amics Peluts.",
+        form_submit: "Отправить заявку →",
+        contact_title: "Присоединяйтесь к Amics Peluts 🐾",
+        contact_text: "У вас есть собака в Кастель-д'Аро, Плайя-д'Аро или С'Агаро? Хотите, чтобы муниципалитет стал более дружелюбным к животным? Напишите нам."
+      }
+    };
+
+    function setLang(lang) {
+      const t = translations[lang];
+      if (!t) return;
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) el.innerHTML = t[key];
+      });
+
+      document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+        const key = el.getAttribute('data-i18n-ph');
+        if (t[key] !== undefined) el.placeholder = t[key];
+      });
+
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+
+      document.documentElement.lang = lang;
+    }
+  </script>
 
 </body>
 </html>
