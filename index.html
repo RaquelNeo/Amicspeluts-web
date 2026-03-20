@@ -142,19 +142,24 @@
     /* PHOTO STRIP */
     .photo-strip {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      height: 260px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4px;
       overflow: hidden;
     }
 
     .photo-strip div {
+      height: 220px;
       background-size: cover;
       background-position: center;
       transition: transform 0.4s;
+      overflow: hidden;
     }
 
     .photo-strip div:hover { transform: scale(1.04); }
+
+    @media (max-width: 600px) {
+      .photo-strip { grid-template-columns: repeat(2, 1fr); }
+    }
 
     /* PROPOSTA */
     .section {
@@ -307,6 +312,11 @@
 
   <!-- PHOTO STRIP -->
   <div class="photo-strip">
+    <div style="background-image: url('foto1.jpg')"></div>
+    <div style="background-image: url('foto2.jpg')"></div>
+    <div style="background-image: url('foto3.jpg'); background-position: center 30%;"></div>
+    <div style="background-image: url('foto4.jpg')"></div>
+    <div style="background-image: url('foto5.jpg'); background-position: center 20%;"></div>
     <div style="background-image: url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&q=80')"></div>
     <div style="background-image: url('https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&q=80')"></div>
     <div style="background-image: url('https://images.unsplash.com/photo-1504595403659-9088ce801e29?w=600&q=80')"></div>
