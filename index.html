@@ -27,31 +27,22 @@
       background: var(--white);
     }
 
-    /* LANGUAGE BAR */
-    .lang-bar {
-      background: #111;
-      text-align: right;
-      padding: 0.35rem 2rem;
-      display: flex;
-      justify-content: flex-end;
-      gap: 0.4rem;
-      flex-wrap: wrap;
-    }
-
+    /* LANGUAGE BUTTONS */
     .lang-btn {
       background: none;
-      border: 1px solid transparent;
-      color: #aaa;
-      font-size: 0.82rem;
+      border: none;
+      color: var(--lightblue);
+      font-size: 0.85rem;
       cursor: pointer;
-      padding: 0.2rem 0.55rem;
+      padding: 0.2rem 0.4rem;
       border-radius: 4px;
       transition: all 0.2s;
       font-family: inherit;
+      margin-left: 0.3rem;
     }
 
-    .lang-btn:hover { color: #fff; border-color: #555; }
-    .lang-btn.active { color: #fff; border-color: var(--tan); background: rgba(201,169,122,0.15); }
+    .lang-btn:hover { color: var(--white); }
+    .lang-btn.active { color: var(--tan); font-weight: 700; }
 
     /* HEADER */
     header {
@@ -331,15 +322,6 @@
 </head>
 <body>
 
-  <!-- LANGUAGE BAR -->
-  <div class="lang-bar">
-    <button class="lang-btn active" onclick="setLang('ca')">🏴 Català</button>
-    <button class="lang-btn" onclick="setLang('es')">🇪🇸 Castellano</button>
-    <button class="lang-btn" onclick="setLang('en')">🇬🇧 English</button>
-    <button class="lang-btn" onclick="setLang('fr')">🇫🇷 Français</button>
-    <button class="lang-btn" onclick="setLang('ru')">🇷🇺 Русский</button>
-  </div>
-
   <header>
     <div class="logo-wrap">
       <img src="logo.png" alt="Logo Amics Peluts">
@@ -352,6 +334,13 @@
       <a href="#proposta" data-i18n="nav_proposals">La nostra proposta</a>
       <a href="#soci" data-i18n="nav_join">Fes-te soci</a>
       <a href="#contacte" data-i18n="nav_contact">Contacte</a>
+      <span style="margin-left:1rem; border-left:1px solid rgba(255,255,255,0.2); padding-left:1rem;">
+        <button class="lang-btn active" onclick="setLang('ca')">🏴 CA</button>
+        <button class="lang-btn" onclick="setLang('es')">🇪🇸 ES</button>
+        <button class="lang-btn" onclick="setLang('en')">🇬🇧 EN</button>
+        <button class="lang-btn" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" onclick="setLang('ru')">🇷🇺 RU</button>
+      </span>
     </nav>
   </header>
 
