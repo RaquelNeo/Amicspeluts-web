@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Amics Peluts — Associació per als animals de companyia de Castell-Platja d'Aro. Defensem el dret dels gossos i els seus propietaris a gaudir del municipi.">
+  <meta property="og:title" content="Amics Peluts — Castell-Platja d'Aro">
+  <meta property="og:description" content="Associació per als animals de companyia de Castell d'Aro, Platja d'Aro i S'Agaró.">
+  <meta property="og:image" content="logo.gif">
+  <title>Amics Peluts — Castell-Platja d'Aro</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --navy: #1a2744;
+      --blue: #3b7abf;
+      --lightblue: #d6eaf8;
+      --sand: #f5efe6;
+      --tan: #c9a97a;
+      --white: #ffffff;
+      --text: #2c2c2c;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background: var(--white);
+    }
+
+    /* HEADER */
+    header {
+      background: var(--navy);
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo-wrap img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+    }
+
+    .logo-text h1 {
+      color: var(--white);
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .logo-text p {
+      color: var(--tan);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    nav a {
+      color: var(--lightblue);
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--white); }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 5rem 2rem 4rem;
+    }
+
+    .hero .paw { font-size: 2.5rem; margin-bottom: 1rem; }
+
+    .hero h2 {
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 560px;
+      margin: 0 auto 2rem;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--tan);
+      color: var(--navy);
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .btn:hover {
+      background: #e0b97f;
+      transform: translateY(-2px);
+    }
+
+    /* HERO BG */
+    .hero {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?w=1400&q=80');
+      background-size: cover;
+      background-position: center 40%;
+      opacity: 0.18;
+      z-index: 0;
+    }
+
+    .hero > *:not(.hero-bg) { position: relative; z-index: 1; }
+
+    /* WAVE */
+    .wave {
+      display: block;
+      width: 100%;
+      height: 60px;
+      background: var(--sand);
+      clip-path: ellipse(55% 100% at 50% 100%);
+      margin-top: -1px;
+    }
+
+    /* PHOTO STRIP */
+    .photo-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      height: 260px;
+      overflow: hidden;
+    }
+
+    .photo-strip div {
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.4s;
+    }
+
+    .photo-strip div:hover { transform: scale(1.04); }
+
+    /* PROPOSTA */
+    .section {
+      padding: 4rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: #666;
+      margin-bottom: 3rem;
+      font-size: 1rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--lightblue);
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      border-top: 4px solid var(--blue);
+    }
+
+    .card .icon { font-size: 2.2rem; margin-bottom: 1rem; }
+
+    .card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    /* STRIP */
+    .strip {
+      background: var(--sand);
+      padding: 4rem 2rem;
+    }
+
+    /* CONTACT */
+    .contact {
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .contact h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact p {
+      opacity: 0.85;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+    }
+
+    .contact a.btn {
+      background: var(--white);
+      color: var(--navy);
+    }
+
+    .contact a.btn:hover {
+      background: var(--lightblue);
+    }
+
+    .social-links {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .social-links a {
+      color: var(--tan);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+
+    .social-links a:hover { color: var(--white); }
+
+    /* FOOTER */
+    footer {
+      background: #111;
+      color: #777;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.8rem;
+    }
+
+    footer a { color: #999; text-decoration: none; }
+
+    @media (max-width: 600px) {
+      nav { display: none; }
+      .hero { padding: 3.5rem 1.5rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-wrap">
+      <img src="logo.gif" alt="Logo Amics Peluts">
+      <div class="logo-text">
+        <h1>Amics Peluts</h1>
+        <p>Castell · Platja d'Aro · S'Agaró</p>
+      </div>
+    </div>
+    <nav>
+      <a href="#proposta">La nostra proposta</a>
+      <a href="#contacte">Contacte</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="paw">🐾</div>
+    <h2>El teu gos també mereix gaudir de la Costa Brava</h2>
+    <p>Som l'associació dels amants dels animals de companyia de Castell-Platja d'Aro. Treballem perquè gossos i persones puguem compartir el municipi sense conflictes.</p>
+    <a href="#proposta" class="btn">Descobreix la nostra proposta</a>
+  </section>
+
+  <div style="background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%); padding-bottom: 0;">
+    <div class="wave"></div>
+  </div>
+
+  <!-- PHOTO STRIP -->
+  <div class="photo-strip">
+    <div style="background-image: url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&q=80')"></div>
+    <div style="background-image: url('https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&q=80')"></div>
+    <div style="background-image: url('https://images.unsplash.com/photo-1504595403659-9088ce801e29?w=600&q=80')"></div>
+  </div>
+
+  <div style="background: var(--sand); padding: 0.1px 0;">
+    <section class="section" id="proposta">
+      <h2 class="section-title">Una solució de convivència</h2>
+      <p class="section-sub">No és una reivindicació. És una eina de gestió municipal que beneficia tothom.</p>
+      <div class="cards">
+        <div class="card">
+          <div class="icon">🏖️</div>
+          <h3>Zona canina a la Platja del Port</h3>
+          <p>Un espai delimitat i equipat on els gossos puguin córrer i banyar-se. Separació natural amb la Platja Gran gràcies al riu Ridaura.</p>
+        </div>
+        <div class="card">
+          <div class="icon">💧</div>
+          <h3>Fonts per a gossos al passeig</h3>
+          <p>Broquets baixos a les fonts existents del passeig marítim perquè els animals puguin beure en ple estiu.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🏆</div>
+          <h3>Bandera Blava preservada</h3>
+          <p>La nostra proposta és compatible al 100% amb els criteris ADEAC. La Platja Gran manté el seu distintiu intacte.</p>
+        </div>
+        <div class="card">
+          <div class="icon">📈</div>
+          <h3>Turisme de major poder adquisitiu</h3>
+          <p>El turista amb gos gasta un 52% més que el turista convencional. Cap municipi entre Blanes i Palamós ofereix platja canina.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="contact" id="contacte">
+    <h2>Suma't als Amics Peluts 🐾</h2>
+    <p>Tens un gos a Castell-Platja d'Aro? Vols que el municipi sigui més pet friendly? Escriu-nos.</p>
+    <a href="mailto:info@amicspeluts.org" class="btn">info@amicspeluts.org</a>
+    <div class="social-links">
+      <a href="https://instagram.com/amicspeluts" target="_blank">📸 Instagram</a>
+      <a href="https://facebook.com/amicspeluts" target="_blank">👥 Facebook</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Associació Amics Peluts · Castell d'Aro, Platja d'Aro i S'Agaró · <a href="mailto:info@amicspeluts.org">info@amicspeluts.org</a></p>
+  </footer>
+
+</body>
+</html>
