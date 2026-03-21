@@ -435,6 +435,20 @@
         </div>
       </div>
       <div class="form-group">
+        <label for="municipi" data-i18n="form_municipi">Municipi *</label>
+        <select id="municipi" name="municipi" required style="width:100%; padding:0.75rem 1rem; border:2px solid #ddd; border-radius:10px; font-size:1rem; font-family:inherit; background:var(--white); cursor:pointer; transition:border-color 0.2s;">
+          <option value="" disabled selected data-i18n-opt="form_municipi_sel">Selecciona el teu municipi</option>
+          <option value="Platja d'Aro">Platja d'Aro</option>
+          <option value="Castell d'Aro">Castell d'Aro</option>
+          <option value="S'Agaró">S'Agaró</option>
+          <option value="Altres" data-i18n-opt="form_municipi_altres">Altres</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="codi_postal" data-i18n="form_cp">Codi postal (opcional)</label>
+        <input type="text" id="codi_postal" name="codi_postal" data-i18n-ph="form_cp_ph" placeholder="17250" maxlength="10">
+      </div>
+      <div class="form-group">
         <label for="comentaris" data-i18n="form_comments">Ens encanta escoltar-te 💬</label>
         <textarea id="comentaris" name="comentaris" data-i18n-ph="form_comments_ph" placeholder="Suggeriments, comentaris, idees... el que vulguis!" rows="4"></textarea>
       </div>
@@ -491,6 +505,11 @@
         form_email: "📬 T'agradaria rebre notícies de l'associació i els projectes?",
         form_email_ph: "El teu correu electrònic (opcional)",
         form_phone: "Telèfon *",
+        form_municipi: "Municipi *",
+        form_municipi_sel: "Selecciona el teu municipi",
+        form_municipi_altres: "Altres",
+        form_cp: "Codi postal (opcional)",
+        form_cp_ph: "17250",
         form_comments: "Ens encanta escoltar-te 💬",
         form_comments_ph: "Suggeriments, comentaris, idees... el que vulguis!",
         form_privacy: "He llegit i accepto la <a href=\"mailto:info@amicspeluts.org\" style=\"color:var(--blue)\">política de privacitat</a>. Les dades facilitades s'utilitzaran únicament per a la gestió de socis de l'Associació Amics Peluts.",
@@ -523,6 +542,11 @@
         form_email: "📬 ¿Te gustaría recibir noticias de la asociación y los proyectos?",
         form_email_ph: "Tu correo electrónico (opcional)",
         form_phone: "Teléfono *",
+        form_municipi: "Municipio *",
+        form_municipi_sel: "Selecciona tu municipio",
+        form_municipi_altres: "Otros",
+        form_cp: "Código postal (opcional)",
+        form_cp_ph: "17250",
         form_comments: "Nos encanta escucharte 💬",
         form_comments_ph: "Sugerencias, comentarios, ideas... ¡lo que quieras!",
         form_privacy: "He leído y acepto la <a href=\"mailto:info@amicspeluts.org\" style=\"color:var(--blue)\">política de privacidad</a>. Los datos facilitados se utilizarán únicamente para la gestión de socios de la Asociación Amics Peluts.",
@@ -555,6 +579,11 @@
         form_email: "📬 Would you like to receive news about the association and projects?",
         form_email_ph: "Your email address (optional)",
         form_phone: "Phone *",
+        form_municipi: "Municipality *",
+        form_municipi_sel: "Select your municipality",
+        form_municipi_altres: "Other",
+        form_cp: "Postcode (optional)",
+        form_cp_ph: "17250",
         form_comments: "We'd love to hear from you 💬",
         form_comments_ph: "Suggestions, comments, ideas... anything you'd like to share!",
         form_privacy: "I have read and accept the <a href=\"mailto:info@amicspeluts.org\" style=\"color:var(--blue)\">privacy policy</a>. The data provided will be used solely for membership management of the Amics Peluts Association.",
@@ -587,6 +616,11 @@
         form_email: "📬 Souhaitez-vous recevoir des nouvelles de l'association et des projets ?",
         form_email_ph: "Votre adresse e-mail (optionnel)",
         form_phone: "Téléphone *",
+        form_municipi: "Commune *",
+        form_municipi_sel: "Sélectionnez votre commune",
+        form_municipi_altres: "Autre",
+        form_cp: "Code postal (optionnel)",
+        form_cp_ph: "17250",
         form_comments: "Nous adorons vous écouter 💬",
         form_comments_ph: "Suggestions, commentaires, idées... tout ce que vous voulez !",
         form_privacy: "J'ai lu et j'accepte la <a href=\"mailto:info@amicspeluts.org\" style=\"color:var(--blue)\">politique de confidentialité</a>. Les données fournies seront utilisées uniquement pour la gestion des membres de l'Association Amics Peluts.",
@@ -619,6 +653,11 @@
         form_email: "📬 Хотите получать новости об ассоциации и проектах?",
         form_email_ph: "Ваш email (необязательно)",
         form_phone: "Телефон *",
+        form_municipi: "Муниципалитет *",
+        form_municipi_sel: "Выберите муниципалитет",
+        form_municipi_altres: "Другой",
+        form_cp: "Почтовый индекс (необязательно)",
+        form_cp_ph: "17250",
         form_comments: "Мы рады вас слышать 💬",
         form_comments_ph: "Предложения, комментарии, идеи... всё, что хотите!",
         form_privacy: "Я прочитал(а) и принимаю <a href=\"mailto:info@amicspeluts.org\" style=\"color:var(--blue)\">политику конфиденциальности</a>. Предоставленные данные будут использоваться исключительно для управления членством в ассоциации Amics Peluts.",
