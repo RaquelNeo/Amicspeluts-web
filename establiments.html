@@ -332,8 +332,12 @@
       background: var(--navy);
       padding: 1rem 2rem 1.5rem;
       border-top: 1px solid rgba(255,255,255,0.1);
-      position: relative;
+      position: fixed;
+      top: var(--header-h, 70px);
+      left: 0;
+      right: 0;
       z-index: 101;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
     }
 
     .mobile-menu-est.open { display: flex; }
@@ -642,6 +646,15 @@
 
     overlayEst.addEventListener('click', closeMobileNavEst);
     overlayEst.addEventListener('touchstart', closeMobileNavEst);
+  </script>
+
+  <script>
+    function updateHeaderHeight() {
+      const h = document.querySelector('header').offsetHeight;
+      document.documentElement.style.setProperty('--header-h', h + 'px');
+    }
+    updateHeaderHeight();
+    window.addEventListener('resize', updateHeaderHeight);
   </script>
 
 </body>
