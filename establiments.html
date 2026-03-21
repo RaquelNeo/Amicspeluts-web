@@ -311,49 +311,39 @@
     .hamburger {
       display: none;
       flex-direction: column;
-      justify-content: center;
       gap: 5px;
+      cursor: pointer;
+      padding: 0.4rem;
       background: none;
       border: none;
-      cursor: pointer;
-      padding: 6px;
-      border-radius: 6px;
-      transition: background 0.2s;
     }
-    .hamburger:hover { background: rgba(255,255,255,0.1); }
+
     .hamburger span {
       display: block;
       width: 24px;
-      height: 2.5px;
+      height: 2px;
       background: var(--white);
       border-radius: 2px;
-      transition: transform 0.3s, opacity 0.3s;
     }
-    .hamburger.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
 
     .mobile-menu-est {
       display: none;
       flex-direction: column;
       background: var(--navy);
+      padding: 1rem 2rem 1.5rem;
       border-top: 1px solid rgba(255,255,255,0.1);
-      padding: 0.5rem 0;
-      position: relative;
-      z-index: 10;
     }
+
     .mobile-menu-est.open { display: flex; }
+
     .mobile-menu-est a {
       color: var(--lightblue);
       text-decoration: none;
       font-size: 1rem;
       font-weight: 500;
-      padding: 0.9rem 1.5rem;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      transition: background 0.2s, color 0.2s;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
     }
-    .mobile-menu-est a:last-child { border-bottom: none; }
-    .mobile-menu-est a:hover { background: rgba(255,255,255,0.07); color: var(--white); }
 
     .nav-overlay-est {
       display: none;
@@ -363,25 +353,19 @@
     }
     .nav-overlay-est.open { display: block; }
 
-    .header-right-est {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-
     .lang-mobile-header {
       display: none;
       gap: 0.3rem;
       align-items: center;
-      flex-shrink: 0;
     }
+
     .lang-mobile-header button {
       background: none;
       border: none;
       font-size: 1.2rem;
       cursor: pointer;
       padding: 0.2rem;
-      opacity: 0.7;
+      opacity: 0.6;
       transition: opacity 0.2s;
       line-height: 1;
       filter: brightness(1.25) saturate(1.4);
@@ -391,6 +375,8 @@
 
     @media (max-width: 600px) {
       nav { display: none; }
+      .hamburger { display: flex; }
+      .lang-mobile-header { display: flex; }
       header { flex-wrap: wrap; padding: 0.6rem 1rem; align-items: center; }
       .logo-wrap { flex: 1; }
       .logo-wrap img { width: 50px; height: 50px; }
@@ -409,8 +395,8 @@
 <body>
 
   <header>
-    <a href="index.html" class="logo-wrap">
-      <img src="logo.png" alt="Amics Peluts">
+    <a href="index.html" class="logo-wrap" style="text-decoration:none;">
+      <img src="logo.png" alt="Logo Amics Peluts">
       <div class="logo-text">
         <h1>Amics Peluts</h1>
         <p>Castell d'Aro · Platja d'Aro · S'Agaró</p>
@@ -423,43 +409,19 @@
       <a href="index.html#soci" data-i18n="nav_join">Fes-te soci</a>
       <a href="index.html#contacte" data-i18n="nav_contact">Contacte</a>
       <span style="margin-left:1rem; border-left:1px solid rgba(255,255,255,0.2); padding-left:1rem;">
-        <button class="lang-btn active" onclick="setLang('ca')">
-          <span class="flag-emoji">🇨🇦</span>
-          <span class="flag-dot" style="background:#fcdd09;border:1px solid #ae0001;"></span>
-          <span class="flag-label">CAT</span>
-        </button>
-        <button class="lang-btn" onclick="setLang('es')">
-          <span class="flag-emoji">🇪🇸</span>
-          <span class="flag-dot" style="background:#c60b1e;"></span>
-          <span class="flag-label">ES</span>
-        </button>
-        <button class="lang-btn" onclick="setLang('en')">
-          <span class="flag-emoji">🇬🇧</span>
-          <span class="flag-dot" style="background:#012169;"></span>
-          <span class="flag-label">EN</span>
-        </button>
-        <button class="lang-btn" onclick="setLang('fr')">
-          <span class="flag-emoji">🇫🇷</span>
-          <span class="flag-dot" style="background:#002395;"></span>
-          <span class="flag-label">FR</span>
-        </button>
-        <button class="lang-btn" onclick="setLang('ru')">
-          <span class="flag-emoji">🇷🇺</span>
-          <span class="flag-dot" style="background:#d52b1e;"></span>
-          <span class="flag-label">RU</span>
-        </button>
+        <button class="lang-btn active" onclick="setLang('ca')"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 6'%3E%3Crect width='9' height='6' fill='%23FCDD09'/%3E%3Crect y='1' width='9' height='.857' fill='%23DA0000'/%3E%3Crect y='2.143' width='9' height='.857' fill='%23DA0000'/%3E%3Crect y='3.286' width='9' height='.857' fill='%23DA0000'/%3E%3Crect y='4.429' width='9' height='.857' fill='%23DA0000'/%3E%3C/svg%3E" style="width:12px;height:8px;vertical-align:middle;border-radius:2px;margin-right:3px;"> CAT</button>
+        <button class="lang-btn" onclick="setLang('es')">🇪🇸 ES</button>
+        <button class="lang-btn" onclick="setLang('en')">🇬🇧 EN</button>
+        <button class="lang-btn" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" onclick="setLang('ru')">🇷🇺 RU</button>
       </span>
     </nav>
-
-    <!-- Mobile: flags + hamburger -->
-    <div class="lang-mobile-header" id="langMobileEst">
-      <button onclick="setLang('ca');document.querySelectorAll('#langMobileEst button').forEach(b=>b.classList.remove('active'));this.classList.add('active')" class="active">
-        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 6'%3E%3Crect width='9' height='6' fill='%23FCDD09'/%3E%3Crect y='1' width='9' height='.857' fill='%23DA0000'/%3E%3Crect y='2.143' width='9' height='.857' fill='%23DA0000'/%3E%3Crect y='3.286' width='9' height='.857' fill='%23DA0000'/%3E%3Crect y='4.429' width='9' height='.857' fill='%23DA0000'/%3E%3C/svg%3E" style="width:14px;height:9px;vertical-align:middle;">
-      </button>
-      <button onclick="setLang('es');document.querySelectorAll('#langMobileEst button').forEach(b=>b.classList.remove('active'));this.classList.add('active')">🇪🇸</button>
-      <button onclick="setLang('en');document.querySelectorAll('#langMobileEst button').forEach(b=>b.classList.remove('active'));this.classList.add('active')">🇬🇧</button>
-      <button onclick="setLang('fr');document.querySelectorAll('#langMobileEst button').forEach(b=>b.classList.remove('active'));this.classList.add('active')">🇫🇷</button>
-      <button onclick="setLang('ru');document.querySelectorAll('#langMobileEst button').forEach(b=>b.classList.remove('active'));this.classList.add('active')">🇷🇺</button>
+    <div class="lang-mobile-header">
+      <button onclick="setLang('ca');document.querySelectorAll('.lang-mobile-header button').forEach(b=>b.classList.remove('active'));this.classList.add('active')" class="active"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 6'%3E%3Crect width='9' height='6' fill='%23FCDD09'/%3E%3Crect y='1' width='9' height='.857' fill='%23DA0000'/%3E%3Crect y='2.143' width='9' height='.857' fill='%23DA0000'/%3E%3Crect y='3.286' width='9' height='.857' fill='%23DA0000'/%3E%3Crect y='4.429' width='9' height='.857' fill='%23DA0000'/%3E%3C/svg%3E" style="width:14px;height:9px;vertical-align:middle;"></button>
+      <button onclick="setLang('es');document.querySelectorAll('.lang-mobile-header button').forEach(b=>b.classList.remove('active'));this.classList.add('active')">🇪🇸</button>
+      <button onclick="setLang('en');document.querySelectorAll('.lang-mobile-header button').forEach(b=>b.classList.remove('active'));this.classList.add('active')">🇬🇧</button>
+      <button onclick="setLang('fr');document.querySelectorAll('.lang-mobile-header button').forEach(b=>b.classList.remove('active'));this.classList.add('active')">🇫🇷</button>
+      <button onclick="setLang('ru');document.querySelectorAll('.lang-mobile-header button').forEach(b=>b.classList.remove('active'));this.classList.add('active')">🇷🇺</button>
     </div>
     <button class="hamburger" id="hamburgerEst" aria-label="Menú">
       <span></span><span></span><span></span>
