@@ -472,10 +472,16 @@
       }
       .lang-mobile-header {
         display: flex;
-        grid-column: 2 / 4;
+        grid-column: 2;
         grid-row: 2;
         padding: 0.2rem 0 0;
-        gap: 0.4rem;
+        gap: 0.3rem;
+        flex-wrap: nowrap;
+        overflow: hidden;
+      }
+      .lang-mobile-header button {
+        font-size: 0.62rem;
+        padding: 1px 4px;
       }
     }
   </style>
