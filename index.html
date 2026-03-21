@@ -406,10 +406,6 @@
         <input type="text" id="nom" name="nom" data-i18n-ph="form_name_ph" placeholder="El teu nom i cognoms" required>
       </div>
       <div class="form-group">
-        <label for="email" data-i18n="form_email">Correu electrònic *</label>
-        <input type="email" id="email" name="email" data-i18n-ph="form_email_ph" placeholder="correu@exemple.com">
-      </div>
-      <div class="form-group">
         <label for="dni">DNI *</label>
         <input type="text" id="dni" name="dni" placeholder="12345678A" required>
       </div>
@@ -447,6 +443,25 @@
       <div class="form-group">
         <label for="codi_postal" data-i18n="form_cp">Codi postal (opcional)</label>
         <input type="text" id="codi_postal" name="codi_postal" data-i18n-ph="form_cp_ph" placeholder="17250" maxlength="10">
+      </div>
+      <div class="form-group">
+        <label data-i18n="form_animals">Tens animals? 🐾</label>
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+          <select name="num_animals" style="flex:1; min-width:120px; padding:0.75rem 1rem; border:2px solid #ddd; border-radius:10px; font-size:1rem; font-family:inherit; background:var(--white);">
+            <option value="" disabled selected data-i18n-opt="form_animals_quants">Quants?</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4+">4+</option>
+          </select>
+          <select name="tipus_animal" style="flex:2; min-width:160px; padding:0.75rem 1rem; border:2px solid #ddd; border-radius:10px; font-size:1rem; font-family:inherit; background:var(--white);">
+            <option value="" disabled selected data-i18n-opt="form_animals_quin">Quin tipus?</option>
+            <option value="Gos" data-i18n-opt="form_animal_gos">🐕 Gos</option>
+            <option value="Gat" data-i18n-opt="form_animal_gat">🐈 Gat</option>
+            <option value="Gos i gat" data-i18n-opt="form_animal_ambdos">🐕🐈 Gos i gat</option>
+            <option value="Altres" data-i18n-opt="form_animal_altres">Altres</option>
+          </select>
+        </div>
       </div>
       <div class="form-group">
         <label for="comentaris" data-i18n="form_comments">Ens encanta escoltar-te 💬</label>
@@ -510,6 +525,13 @@
         form_municipi_altres: "Altres",
         form_cp: "Codi postal (opcional)",
         form_cp_ph: "17250",
+        form_animals: "Tens animals? 🐾",
+        form_animals_quants: "Quants?",
+        form_animals_quin: "Quin tipus?",
+        form_animal_gos: "🐕 Gos",
+        form_animal_gat: "🐈 Gat",
+        form_animal_ambdos: "🐕🐈 Gos i gat",
+        form_animal_altres: "Altres",
         form_comments: "Ens encanta escoltar-te 💬",
         form_comments_ph: "Suggeriments, comentaris, idees... el que vulguis!",
         form_privacy: "He llegit i accepto la <a href=\"mailto:info@amicspeluts.org\" style=\"color:var(--blue)\">política de privacitat</a>. Les dades facilitades s'utilitzaran únicament per a la gestió de socis de l'Associació Amics Peluts.",
@@ -547,6 +569,13 @@
         form_municipi_altres: "Otros",
         form_cp: "Código postal (opcional)",
         form_cp_ph: "17250",
+        form_animals: "¿Tienes animales? 🐾",
+        form_animals_quants: "¿Cuántos?",
+        form_animals_quin: "¿Qué tipo?",
+        form_animal_gos: "🐕 Perro",
+        form_animal_gat: "🐈 Gato",
+        form_animal_ambdos: "🐕🐈 Perro y gato",
+        form_animal_altres: "Otros",
         form_comments: "Nos encanta escucharte 💬",
         form_comments_ph: "Sugerencias, comentarios, ideas... ¡lo que quieras!",
         form_privacy: "He leído y acepto la <a href=\"mailto:info@amicspeluts.org\" style=\"color:var(--blue)\">política de privacidad</a>. Los datos facilitados se utilizarán únicamente para la gestión de socios de la Asociación Amics Peluts.",
@@ -584,6 +613,13 @@
         form_municipi_altres: "Other",
         form_cp: "Postcode (optional)",
         form_cp_ph: "17250",
+        form_animals: "Do you have pets? 🐾",
+        form_animals_quants: "How many?",
+        form_animals_quin: "What type?",
+        form_animal_gos: "🐕 Dog",
+        form_animal_gat: "🐈 Cat",
+        form_animal_ambdos: "🐕🐈 Dog and cat",
+        form_animal_altres: "Other",
         form_comments: "We'd love to hear from you 💬",
         form_comments_ph: "Suggestions, comments, ideas... anything you'd like to share!",
         form_privacy: "I have read and accept the <a href=\"mailto:info@amicspeluts.org\" style=\"color:var(--blue)\">privacy policy</a>. The data provided will be used solely for membership management of the Amics Peluts Association.",
@@ -621,6 +657,13 @@
         form_municipi_altres: "Autre",
         form_cp: "Code postal (optionnel)",
         form_cp_ph: "17250",
+        form_animals: "Vous avez des animaux ? 🐾",
+        form_animals_quants: "Combien ?",
+        form_animals_quin: "Quel type ?",
+        form_animal_gos: "🐕 Chien",
+        form_animal_gat: "🐈 Chat",
+        form_animal_ambdos: "🐕🐈 Chien et chat",
+        form_animal_altres: "Autre",
         form_comments: "Nous adorons vous écouter 💬",
         form_comments_ph: "Suggestions, commentaires, idées... tout ce que vous voulez !",
         form_privacy: "J'ai lu et j'accepte la <a href=\"mailto:info@amicspeluts.org\" style=\"color:var(--blue)\">politique de confidentialité</a>. Les données fournies seront utilisées uniquement pour la gestion des membres de l'Association Amics Peluts.",
@@ -658,6 +701,13 @@
         form_municipi_altres: "Другой",
         form_cp: "Почтовый индекс (необязательно)",
         form_cp_ph: "17250",
+        form_animals: "Есть домашние животные? 🐾",
+        form_animals_quants: "Сколько?",
+        form_animals_quin: "Какие?",
+        form_animal_gos: "🐕 Собака",
+        form_animal_gat: "🐈 Кошка",
+        form_animal_ambdos: "🐕🐈 Собака и кошка",
+        form_animal_altres: "Другие",
         form_comments: "Мы рады вас слышать 💬",
         form_comments_ph: "Предложения, комментарии, идеи... всё, что хотите!",
         form_privacy: "Я прочитал(а) и принимаю <a href=\"mailto:info@amicspeluts.org\" style=\"color:var(--blue)\">политику конфиденциальности</a>. Предоставленные данные будут использоваться исключительно для управления членством в ассоциации Amics Peluts.",
