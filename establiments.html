@@ -308,9 +308,72 @@
 
     footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
 
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    .hamburger:hover { background: rgba(255,255,255,0.1); }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2.5px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+    .mobile-menu-est {
+      display: none;
+      flex-direction: column;
+      background: var(--navy);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 0.5rem 0;
+      position: relative;
+      z-index: 10;
+    }
+    .mobile-menu-est.open { display: flex; }
+    .mobile-menu-est a {
+      color: var(--lightblue);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.9rem 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: background 0.2s, color 0.2s;
+    }
+    .mobile-menu-est a:last-child { border-bottom: none; }
+    .mobile-menu-est a:hover { background: rgba(255,255,255,0.07); color: var(--white); }
+
+    .nav-overlay-est {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9;
+    }
+    .nav-overlay-est.open { display: block; }
+
+    .header-right-est {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
     @media (max-width: 600px) {
       nav { display: none; }
-      .logo-wrap img { width: 50px; height: 50px; }
+      .hamburger { display: flex; }
+      .logo-wrap img { width: 60px; height: 60px; }
+      header { flex-wrap: nowrap; }
     }
   </style>
 </head>
@@ -358,7 +421,24 @@
         </button>
       </span>
     </nav>
+
+    <!-- Mobile: hamburger -->
+    <div class="header-right-est">
+      <button class="hamburger" id="hamburgerEst" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </header>
+
+  <div class="nav-overlay-est" id="navOverlayEst"></div>
+
+  <nav class="mobile-menu-est" id="mobileMenuEst">
+    <a href="index.html" data-i18n="nav_home" onclick="closeMobileNavEst()">← Inici</a>
+    <a href="index.html#proposta" data-i18n="nav_proposals" onclick="closeMobileNavEst()">Les nostres propostes</a>
+    <a href="establiments.html" data-i18n="nav_estab" onclick="closeMobileNavEst()">Establiments Pet Friendly</a>
+    <a href="index.html#soci" data-i18n="nav_join" onclick="closeMobileNavEst()">Fes-te soci</a>
+    <a href="index.html#contacte" data-i18n="nav_contact" onclick="closeMobileNavEst()">Contacte</a>
+  </nav>
 
   <div class="hero-small">
     <h2 data-i18n="title">Establiments Pet Friendly 🐾</h2>
@@ -540,5 +620,26 @@
       document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
     }
   </script>
+
+  <script>
+    const btnEst = document.getElementById('hamburgerEst');
+    const navEst = document.getElementById('mobileMenuEst');
+    const overlayEst = document.getElementById('navOverlayEst');
+
+    function closeMobileNavEst() {
+      btnEst.classList.remove('open');
+      navEst.classList.remove('open');
+      overlayEst.classList.remove('open');
+    }
+
+    btnEst.addEventListener('click', () => {
+      const isOpen = navEst.classList.contains('open');
+      isOpen ? closeMobileNavEst() : (btnEst.classList.add('open'), navEst.classList.add('open'), overlayEst.classList.add('open'));
+    });
+
+    overlayEst.addEventListener('click', closeMobileNavEst);
+    overlayEst.addEventListener('touchstart', closeMobileNavEst);
+  </script>
+
 </body>
 </html>
