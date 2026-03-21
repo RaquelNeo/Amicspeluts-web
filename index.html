@@ -471,19 +471,21 @@
         align-self: center;
       }
       .lang-mobile-header {
-        display: flex;
-        flex-direction: row;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
         grid-column: 2 / 4;
         grid-row: 2;
         padding: 0.15rem 0 0;
         gap: 0.2rem;
-        flex-wrap: nowrap;
         align-items: center;
+        width: 100%;
       }
       .lang-mobile-header button {
         font-size: 0.58rem;
-        padding: 1px 3px;
+        padding: 1px 4px;
         white-space: nowrap;
+        flex-shrink: 1;
       }
     }
   </style>
