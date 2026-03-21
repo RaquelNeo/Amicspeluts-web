@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Guia d'establiments pet friendly a Castell d'Aro, Platja d'Aro i S'Agaró — Amics Peluts">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <title>Establiments Pet Friendly — Amics Peluts</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --navy: #1a2744;
+      --blue: #3b7abf;
+      --lightblue: #d6eaf8;
+      --sand: #f5efe6;
+      --tan: #c9a97a;
+      --white: #ffffff;
+      --text: #2c2c2c;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background: var(--white);
+    }
+
+    header {
+      background: var(--navy);
+      padding: 0.8rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      text-decoration: none;
+    }
+
+    .logo-wrap img { width: 42px; height: 42px; border-radius: 50%; }
+
+    .logo-text h1 { color: var(--white); font-size: 1.2rem; font-weight: 700; }
+    .logo-text p { color: var(--tan); font-size: 0.84rem; text-transform: uppercase; font-weight: 600; }
+
+    nav a {
+      color: var(--lightblue);
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--white); }
+    nav a.active { color: var(--tan); font-weight: 700; }
+
+    .hero-small {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+
+    .hero-small h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-small p { opacity: 0.85; font-size: 1rem; max-width: 560px; margin: 0 auto; }
+
+    .coming-soon {
+      text-align: center;
+      padding: 5rem 2rem;
+      background: var(--sand);
+    }
+
+    .coming-soon .icon { font-size: 4rem; margin-bottom: 1.5rem; }
+
+    .coming-soon h3 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+
+    .coming-soon p {
+      font-size: 1rem;
+      color: #666;
+      max-width: 500px;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+    }
+
+    .categories {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .cat-badge {
+      background: var(--white);
+      border: 2px solid var(--lightblue);
+      border-radius: 50px;
+      padding: 0.5rem 1.2rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--navy);
+      color: var(--white);
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .btn:hover { background: var(--blue); transform: translateY(-2px); }
+
+    .suggest-box {
+      background: var(--white);
+      max-width: 500px;
+      margin: 3rem auto 0;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      text-align: left;
+    }
+
+    .suggest-box h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .suggest-box p { font-size: 0.9rem; color: #666; margin-bottom: 1rem; }
+
+    .suggest-box input, .suggest-box textarea {
+      width: 100%;
+      padding: 0.7rem 1rem;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      margin-bottom: 0.8rem;
+      background: var(--sand);
+    }
+
+    .suggest-box button {
+      width: 100%;
+      background: var(--navy);
+      color: var(--white);
+      border: none;
+      padding: 0.8rem;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .suggest-box button:hover { background: var(--blue); }
+
+    footer {
+      background: #111;
+      color: #777;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.8rem;
+    }
+
+    footer a { color: #999; text-decoration: none; }
+
+    @media (max-width: 600px) {
+      nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo-wrap">
+      <img src="logo.png" alt="Amics Peluts">
+      <div class="logo-text">
+        <h1>Amics Peluts</h1>
+        <p>Castell d'Aro · Platja d'Aro · S'Agaró</p>
+      </div>
+    </a>
+    <nav>
+      <a href="index.html#proposta">Les nostres propostes</a>
+      <a href="establiments.html" class="active">Establiments Pet Friendly</a>
+      <a href="index.html#soci">Fes-te soci</a>
+      <a href="index.html#contacte">Contacte</a>
+    </nav>
+  </header>
+
+  <div class="hero-small">
+    <h2>Establiments Pet Friendly 🐾</h2>
+    <p>La guia dels millors llocs on els teus animals de companyia sempre són benvinguts.</p>
+  </div>
+
+  <div class="coming-soon">
+    <div class="icon">🗺️</div>
+    <h3>Aviat disponible</h3>
+    <p>Estem preparant la guia d'establiments pet friendly de Castell d'Aro, Platja d'Aro i S'Agaró. Bars, restaurants, hotels, comerços i molt més.</p>
+
+    <div class="categories">
+      <span class="cat-badge">🍽️ Bars i restaurants</span>
+      <span class="cat-badge">🏨 Hotels i allotjaments</span>
+      <span class="cat-badge">🛍️ Comerços i serveis</span>
+      <span class="cat-badge">🏖️ Activitats i lleure</span>
+    </div>
+
+    <a href="index.html#contacte" class="btn">Vols que aparegui el teu negoci? Escriu-nos</a>
+
+    <div class="suggest-box">
+      <h4>Coneix un lloc pet friendly?</h4>
+      <p>Suggereix-nos un establiment i l'afegirem a la guia!</p>
+      <form action="https://formsubmit.co/info@amicspeluts.org" method="POST">
+        <input type="hidden" name="_subject" value="Suggeriment establiment pet friendly">
+        <input type="hidden" name="_next" value="https://amicspeluts.org/establiments.html">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="establiment" placeholder="Nom de l'establiment" required>
+        <input type="text" name="adreca" placeholder="Adreça o zona">
+        <input type="text" name="categoria" placeholder="Tipus (restaurant, hotel, comerç...)">
+        <textarea name="comentari" placeholder="Algun comentari?" rows="3"></textarea>
+        <button type="submit">Enviar suggeriment →</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 Associació Amics Peluts · Castell d'Aro, Platja d'Aro i S'Agaró · <a href="mailto:info@amicspeluts.org">info@amicspeluts.org</a></p>
+  </footer>
+
+</body>
+</html>
