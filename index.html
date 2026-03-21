@@ -510,7 +510,7 @@
       <button onclick="setLang('fr');document.querySelectorAll('.lang-mobile-header button,.mobile-lang button').forEach(b=>b.classList.remove('active'));document.querySelectorAll('[data-lang=fr]').forEach(b=>b.classList.add('active'))" data-lang="fr">🇫🇷 FR</button>
       <button onclick="setLang('ru');document.querySelectorAll('.lang-mobile-header button,.mobile-lang button').forEach(b=>b.classList.remove('active'));document.querySelectorAll('[data-lang=ru]').forEach(b=>b.classList.add('active'))" data-lang="ru">🇷🇺 RU</button>
     </div>
-    <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menú">
+    <button class="hamburger" onclick="const h=document.querySelector('header').offsetHeight;document.documentElement.style.setProperty('--header-h',h+'px');document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menú">
       <span></span><span></span><span></span>
     </button>
   </header>

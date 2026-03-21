@@ -669,7 +669,16 @@
 
     btnEst.addEventListener('click', () => {
       const isOpen = navEst.classList.contains('open');
-      isOpen ? closeMobileNavEst() : (btnEst.classList.add('open'), navEst.classList.add('open'), overlayEst.classList.add('open'));
+      if (isOpen) {
+        closeMobileNavEst();
+      } else {
+        // recalculate header height before opening
+        const h = document.querySelector('header').offsetHeight;
+        document.documentElement.style.setProperty('--header-h', h + 'px');
+        btnEst.classList.add('open');
+        navEst.classList.add('open');
+        overlayEst.classList.add('open');
+      }
     });
 
     overlayEst.addEventListener('click', closeMobileNavEst);
