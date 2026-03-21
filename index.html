@@ -314,10 +314,67 @@
 
     footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
 
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 0.4rem;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: var(--navy);
+      padding: 1rem 2rem 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      color: var(--lightblue);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .mobile-lang {
+      display: flex;
+      gap: 0.5rem;
+      padding-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .mobile-lang button {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: var(--lightblue);
+      padding: 0.3rem 0.7rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    .mobile-lang button.active { color: var(--tan); border-color: var(--tan); }
+
     @media (max-width: 600px) {
       nav { display: none; }
+      .hamburger { display: flex; }
       .hero { padding: 3.5rem 1.5rem 3rem; }
-      .lang-bar { justify-content: center; }
     }
   </style>
 </head>
@@ -344,7 +401,24 @@
         <button class="lang-btn" onclick="setLang('ru')">🇷🇺 RU</button>
       </span>
     </nav>
+    <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
   </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#proposta" data-i18n="nav_proposals" onclick="document.getElementById('mobileMenu').classList.remove('open')">Les nostres propostes</a>
+    <a href="establiments.html" data-i18n="nav_establiments">Establiments Pet Friendly</a>
+    <a href="#soci" data-i18n="nav_join" onclick="document.getElementById('mobileMenu').classList.remove('open')">Fes-te soci</a>
+    <a href="#contacte" data-i18n="nav_contact" onclick="document.getElementById('mobileMenu').classList.remove('open')">Contacte</a>
+    <div class="mobile-lang">
+      <button class="active" onclick="setLang('ca'); document.querySelectorAll('.mobile-lang button').forEach(b=>b.classList.remove('active')); this.classList.add('active')"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 6'%3E%3Crect width='9' height='6' fill='%23FCDD09'/%3E%3Crect y='1' width='9' height='.857' fill='%23DA0000'/%3E%3Crect y='2.143' width='9' height='.857' fill='%23DA0000'/%3E%3Crect y='3.286' width='9' height='.857' fill='%23DA0000'/%3E%3Crect y='4.429' width='9' height='.857' fill='%23DA0000'/%3E%3C/svg%3E" style="width:14px;height:9px;vertical-align:middle;"> CA</button>
+      <button onclick="setLang('es'); document.querySelectorAll('.mobile-lang button').forEach(b=>b.classList.remove('active')); this.classList.add('active')">🇪🇸 ES</button>
+      <button onclick="setLang('en'); document.querySelectorAll('.mobile-lang button').forEach(b=>b.classList.remove('active')); this.classList.add('active')">🇬🇧 EN</button>
+      <button onclick="setLang('fr'); document.querySelectorAll('.mobile-lang button').forEach(b=>b.classList.remove('active')); this.classList.add('active')">🇫🇷 FR</button>
+      <button onclick="setLang('ru'); document.querySelectorAll('.mobile-lang button').forEach(b=>b.classList.remove('active')); this.classList.add('active')">🇷🇺 RU</button>
+    </div>
+  </div>
 
   <section class="hero">
     <img src="logo.png" alt="Amics Peluts" style="width:180px; height:180px; border-radius:50%; margin-bottom:1rem; box-shadow: 0 4px 24px rgba(0,0,0,0.3);">
