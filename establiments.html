@@ -373,6 +373,7 @@
       display: none;
       gap: 0.3rem;
       align-items: center;
+      flex-shrink: 0;
     }
     .lang-mobile-header button {
       background: none;
@@ -392,8 +393,9 @@
       nav { display: none; }
       .hamburger { display: flex; }
       .lang-mobile-header { display: flex; }
-      .logo-wrap img { width: 60px; height: 60px; }
-      header { flex-wrap: nowrap; }
+      .logo-wrap img { width: 50px; height: 50px; }
+      .logo-text p { display: none; }
+      header { flex-wrap: nowrap; padding: 0.6rem 1rem; }
     }
   </style>
 </head>
