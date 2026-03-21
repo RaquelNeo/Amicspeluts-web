@@ -59,6 +59,22 @@
     nav a:hover { color: var(--white); }
     nav a.active { color: var(--tan); font-weight: 700; }
 
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--lightblue);
+      font-size: 0.85rem;
+      cursor: pointer;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      transition: all 0.2s;
+      font-family: inherit;
+      margin-left: 0.3rem;
+    }
+
+    .lang-btn:hover { color: var(--white); }
+    .lang-btn.active { color: var(--tan); font-weight: 700; }
+
     .hero-small {
       background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
       color: var(--white);
@@ -288,18 +304,25 @@
       <a href="establiments.html" class="active">Establiments Pet Friendly</a>
       <a href="index.html#soci">Fes-te soci</a>
       <a href="index.html#contacte">Contacte</a>
+      <span style="margin-left:1rem; border-left:1px solid rgba(255,255,255,0.2); padding-left:1rem;">
+        <button class="lang-btn active" onclick="setLang('ca')"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 6'%3E%3Crect width='9' height='6' fill='%23FCDD09'/%3E%3Crect y='1' width='9' height='.857' fill='%23DA0000'/%3E%3Crect y='2.143' width='9' height='.857' fill='%23DA0000'/%3E%3Crect y='3.286' width='9' height='.857' fill='%23DA0000'/%3E%3Crect y='4.429' width='9' height='.857' fill='%23DA0000'/%3E%3C/svg%3E" style="width:12px;height:8px;vertical-align:middle;border-radius:2px;margin-right:3px;"> CA</button>
+        <button class="lang-btn" onclick="setLang('es')">🇪🇸 ES</button>
+        <button class="lang-btn" onclick="setLang('en')">🇬🇧 EN</button>
+        <button class="lang-btn" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" onclick="setLang('ru')">🇷🇺 RU</button>
+      </span>
     </nav>
   </header>
 
   <div class="hero-small">
-    <h2>Establiments Pet Friendly 🐾</h2>
-    <p>La guia dels millors llocs on els teus animals de companyia sempre són benvinguts.</p>
+    <h2 data-i18n="title">Establiments Pet Friendly 🐾</h2>
+    <p data-i18n="subtitle">La guia dels millors llocs on els teus animals de companyia sempre són benvinguts.</p>
   </div>
 
   <!-- DEMO TARGETES -->
   <div class="establiments-grid">
-    <h3>Establiments destacats</h3>
-    <span class="demo-label">✨ Exemple de com quedarà la guia</span>
+    <h3 data-i18n="featured">Establiments destacats</h3>
+    <span class="demo-label" data-i18n="demo">✨ Exemple de com quedarà la guia</span>
     <div class="estab-grid">
       <div class="estab-card">
         <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&q=80" alt="Cafè El Racó dels Peluts">
@@ -345,8 +368,8 @@
 
   <div class="coming-soon">
     <div class="icon">🗺️</div>
-    <h3>Aviat disponible</h3>
-    <p>Estem preparant la guia d'establiments pet friendly de Castell d'Aro, Platja d'Aro i S'Agaró. Bars, restaurants, hotels, comerços i molt més.</p>
+    <h3 data-i18n="soon_title">Aviat disponible</h3>
+    <p data-i18n="soon_text">Estem preparant la guia d'establiments pet friendly de Castell d'Aro, Platja d'Aro i S'Agaró. Bars, restaurants, hotels, comerços i molt més.</p>
 
     <div class="categories">
       <span class="cat-badge">🍽️ Bars i restaurants</span>
@@ -356,7 +379,7 @@
     </div>
 
     <div class="suggest-box">
-      <h4>Vols que aparegui el teu negoci? Escriu-nos 🐾</h4>
+      <h4 data-i18n="cta_title">Vols que aparegui el teu negoci? Escriu-nos 🐾</h4>
       <p>Si el teu establiment és benvingut als animals de companyia i vols aparèixer a la nostra guia, posa't en contacte amb nosaltres. Et contactarem per confirmar les dades i donar-te la benvinguda!</p>
       <a href="mailto:info@amicspeluts.org?subject=Sol·licitud%20establiment%20pet%20friendly" style="display:block; text-align:center; background:var(--navy); color:var(--white); padding:0.8rem; border-radius:50px; font-weight:700; text-decoration:none; transition: background 0.2s;" onmouseover="this.style.background='#3b7abf'" onmouseout="this.style.background='#1a2744'">Escriu-nos a info@amicspeluts.org →</a>
     </div>
@@ -366,5 +389,65 @@
     <p>© 2026 Associació Amics Peluts · Castell d'Aro, Platja d'Aro i S'Agaró · <a href="mailto:info@amicspeluts.org">info@amicspeluts.org</a></p>
   </footer>
 
+  <script>
+    const t = {
+      ca: {
+        title: "Establiments Pet Friendly 🐾",
+        subtitle: "La guia dels millors llocs on els teus animals de companyia sempre són benvinguts.",
+        featured: "Establiments destacats",
+        demo: "✨ Exemple de com quedarà la guia",
+        soon_title: "Aviat disponible",
+        soon_text: "Estem preparant la guia d'establiments pet friendly de Castell d'Aro, Platja d'Aro i S'Agaró. Bars, restaurants, hotels, comerços i molt més.",
+        cta_title: "Vols que aparegui el teu negoci? Escriu-nos 🐾"
+      },
+      es: {
+        title: "Establecimientos Pet Friendly 🐾",
+        subtitle: "La guía de los mejores lugares donde tus animales siempre son bienvenidos.",
+        featured: "Establecimientos destacados",
+        demo: "✨ Ejemplo de cómo quedará la guía",
+        soon_title: "Próximamente",
+        soon_text: "Estamos preparando la guía de establecimientos pet friendly de Castell d'Aro, Platja d'Aro y S'Agaró. Bares, restaurantes, hoteles, comercios y mucho más.",
+        cta_title: "¿Quieres que aparezca tu negocio? Escríbenos 🐾"
+      },
+      en: {
+        title: "Pet Friendly Places 🐾",
+        subtitle: "The guide to the best places where your pets are always welcome.",
+        featured: "Featured places",
+        demo: "✨ Example of how the guide will look",
+        soon_title: "Coming soon",
+        soon_text: "We're preparing the pet friendly guide for Castell d'Aro, Platja d'Aro and S'Agaró. Bars, restaurants, hotels, shops and much more.",
+        cta_title: "Want your business listed? Write to us 🐾"
+      },
+      fr: {
+        title: "Établissements Pet Friendly 🐾",
+        subtitle: "Le guide des meilleurs endroits où vos animaux sont toujours les bienvenus.",
+        featured: "Établissements en vedette",
+        demo: "✨ Exemple de ce à quoi ressemblera le guide",
+        soon_title: "Bientôt disponible",
+        soon_text: "Nous préparons le guide des établissements pet friendly de Castell d'Aro, Platja d'Aro et S'Agaró. Bars, restaurants, hôtels, commerces et bien plus.",
+        cta_title: "Vous voulez que votre établissement apparaisse ? Écrivez-nous 🐾"
+      },
+      ru: {
+        title: "Pet Friendly заведения 🐾",
+        subtitle: "Путеводитель по лучшим местам, где ваши питомцы всегда желанные гости.",
+        featured: "Рекомендуемые заведения",
+        demo: "✨ Пример того, как будет выглядеть гид",
+        soon_title: "Скоро",
+        soon_text: "Мы готовим путеводитель по pet friendly заведениям Кастель-д'Аро, Плайя-д'Аро и С'Агаро. Бары, рестораны, отели, магазины и многое другое.",
+        cta_title: "Хотите, чтобы ваш бизнес появился здесь? Напишите нам 🐾"
+      }
+    };
+
+    function setLang(lang) {
+      const tr = t[lang];
+      if (!tr) return;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (tr[key]) el.innerHTML = tr[key];
+      });
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+    }
+  </script>
 </body>
 </html>
