@@ -423,13 +423,15 @@
         display: flex;
         grid-column: 2;
         grid-row: 2;
-        padding: 0.2rem 0 0;
-        gap: 0.25rem;
-        flex-wrap: wrap;
+        padding: 0.15rem 0 0;
+        gap: 0.2rem;
+        flex-wrap: nowrap;
+        align-items: center;
       }
       .lang-mobile-header button {
-        font-size: 0.6rem;
+        font-size: 0.58rem;
         padding: 1px 3px;
+        white-space: nowrap;
       }
     }
   </style>
@@ -459,7 +461,7 @@
       </span>
     </nav>
     <div class="lang-mobile-header">
-      <button onclick="setLang('ca');document.querySelectorAll('.lang-mobile-header button').forEach(b=>b.classList.remove('active'));this.classList.add('active')" class="active"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 6'%3E%3Crect width='9' height='6' fill='%23FCDD09'/%3E%3Crect y='1' width='9' height='.857' fill='%23DA0000'/%3E%3Crect y='2.143' width='9' height='.857' fill='%23DA0000'/%3E%3Crect y='3.286' width='9' height='.857' fill='%23DA0000'/%3E%3Crect y='4.429' width='9' height='.857' fill='%23DA0000'/%3E%3C/svg%3E" style="width:14px;height:9px;vertical-align:middle;"> CAT</button>
+      <button onclick="setLang('ca');document.querySelectorAll('.lang-mobile-header button').forEach(b=>b.classList.remove('active'));this.classList.add('active')" class="active">🏴 CAT</button>
       <button onclick="setLang('es');document.querySelectorAll('.lang-mobile-header button').forEach(b=>b.classList.remove('active'));this.classList.add('active')">🇪🇸 CAS</button>
       <button onclick="setLang('en');document.querySelectorAll('.lang-mobile-header button').forEach(b=>b.classList.remove('active'));this.classList.add('active')">🇬🇧 ENG</button>
       <button onclick="setLang('fr');document.querySelectorAll('.lang-mobile-header button').forEach(b=>b.classList.remove('active'));this.classList.add('active')">🇫🇷 FR</button>
