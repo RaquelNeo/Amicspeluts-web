@@ -386,63 +386,45 @@
     @media (max-width: 600px) {
       nav { display: none; }
       header {
-        display: grid;
-        grid-template-columns: auto 1fr auto;
-        grid-template-rows: auto auto;
+        display: flex;
+        flex-wrap: nowrap;
         align-items: center;
         padding: 0.5rem 1rem;
-        gap: 0 0.7rem;
+        gap: 0.7rem;
       }
       .logo-wrap {
-        grid-column: 1;
-        grid-row: 1 / 3;
-        align-self: stretch;
-        display: flex;
-        align-items: center;
+        flex: 1;
+        align-items: flex-start;
       }
       .logo-wrap img {
-        width: auto;
-        height: 100%;
-        min-height: 48px;
-        max-height: 64px;
-        border-radius: 50%;
-        aspect-ratio: 1;
+        width: 52px;
+        height: 52px;
+        flex-shrink: 0;
       }
-      .logo-text {
-        grid-column: 2;
-        grid-row: 1;
-      }
+      .logo-text { flex: 1; }
       .logo-text p { font-size: 0.62rem; letter-spacing: 0.04em; }
-      .hamburger {
-        display: flex;
-        grid-column: 3;
-        grid-row: 1;
-        align-self: center;
-      }
+      .hamburger { display: flex; flex-shrink: 0; }
       .lang-mobile-header {
-        display: flex !important;
-        flex-direction: row !important;
-        flex-wrap: nowrap !important;
-        grid-column: 2 / 4;
-        grid-row: 2;
-        padding: 0.1rem 0 0.1rem;
-        gap: 0.35rem;
-        align-items: center;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 0.25rem;
+        margin-top: 0.2rem;
       }
       .lang-mobile-header button {
         display: inline-flex;
         align-items: center;
-        gap: 3px;
-        font-size: 0.65rem;
+        gap: 2px;
+        font-size: 0.62rem;
         font-weight: 700;
-        padding: 2px 5px;
+        padding: 2px 4px;
         white-space: nowrap;
-        flex-shrink: 0;
         background: rgba(255,255,255,0.12);
         border-radius: 4px;
         color: white;
         border: none;
         font-family: inherit;
+        cursor: pointer;
       }
     }
   </style>
@@ -455,6 +437,13 @@
       <div class="logo-text">
         <h1>Amics Peluts</h1>
         <p>Castell d'Aro · Platja d'Aro · S'Agaró</p>
+        <div class="lang-mobile-header">
+          <button onclick="setLang('ca');document.querySelectorAll('.lang-mobile-header button').forEach(b=>b.classList.remove('active'));this.classList.add('active')" class="active">🏴 CAT</button>
+          <button onclick="setLang('es');document.querySelectorAll('.lang-mobile-header button').forEach(b=>b.classList.remove('active'));this.classList.add('active')">🇪🇸 CAS</button>
+          <button onclick="setLang('en');document.querySelectorAll('.lang-mobile-header button').forEach(b=>b.classList.remove('active'));this.classList.add('active')">🇬🇧 ENG</button>
+          <button onclick="setLang('fr');document.querySelectorAll('.lang-mobile-header button').forEach(b=>b.classList.remove('active'));this.classList.add('active')">🇫🇷 FR</button>
+          <button onclick="setLang('ru');document.querySelectorAll('.lang-mobile-header button').forEach(b=>b.classList.remove('active'));this.classList.add('active')">🇷🇺 RU</button>
+        </div>
       </div>
     </a>
     <nav>
@@ -471,13 +460,6 @@
         <button class="lang-btn" onclick="setLang('ru')">🇷🇺 RU</button>
       </span>
     </nav>
-    <div class="lang-mobile-header">
-      <button onclick="setLang('ca');document.querySelectorAll('.lang-mobile-header button').forEach(b=>b.classList.remove('active'));this.classList.add('active')" class="active">🏴 CAT</button>
-      <button onclick="setLang('es');document.querySelectorAll('.lang-mobile-header button').forEach(b=>b.classList.remove('active'));this.classList.add('active')">🇪🇸 CAS</button>
-      <button onclick="setLang('en');document.querySelectorAll('.lang-mobile-header button').forEach(b=>b.classList.remove('active'));this.classList.add('active')">🇬🇧 ENG</button>
-      <button onclick="setLang('fr');document.querySelectorAll('.lang-mobile-header button').forEach(b=>b.classList.remove('active'));this.classList.add('active')">🇫🇷 FR</button>
-      <button onclick="setLang('ru');document.querySelectorAll('.lang-mobile-header button').forEach(b=>b.classList.remove('active'));this.classList.add('active')">🇷🇺 RU</button>
-    </div>
     <button class="hamburger" id="hamburgerEst" aria-label="Menú">
       <span></span><span></span><span></span>
     </button>
