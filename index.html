@@ -314,6 +314,26 @@
 
     footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
 
+    .lang-mobile-header {
+      display: none;
+      gap: 0.3rem;
+      align-items: center;
+    }
+
+    .lang-mobile-header button {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 0.2rem;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+      line-height: 1;
+    }
+
+    .lang-mobile-header button.active { opacity: 1; }
+    .lang-mobile-header button:hover { opacity: 1; }
+
     .hamburger {
       display: none;
       flex-direction: column;
@@ -401,6 +421,13 @@
         <button class="lang-btn" onclick="setLang('ru')">🇷🇺 RU</button>
       </span>
     </nav>
+    <div class="lang-mobile-header">
+      <button onclick="setLang('ca');document.querySelectorAll('.lang-mobile-header button,.mobile-lang button').forEach(b=>b.classList.remove('active'));document.querySelectorAll('[data-lang=ca]').forEach(b=>b.classList.add('active'))" data-lang="ca" class="active"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 6'%3E%3Crect width='9' height='6' fill='%23FCDD09'/%3E%3Crect y='1' width='9' height='.857' fill='%23DA0000'/%3E%3Crect y='2.143' width='9' height='.857' fill='%23DA0000'/%3E%3Crect y='3.286' width='9' height='.857' fill='%23DA0000'/%3E%3Crect y='4.429' width='9' height='.857' fill='%23DA0000'/%3E%3C/svg%3E" style="width:14px;height:9px;vertical-align:middle;"></button>
+      <button onclick="setLang('es');document.querySelectorAll('.lang-mobile-header button,.mobile-lang button').forEach(b=>b.classList.remove('active'));document.querySelectorAll('[data-lang=es]').forEach(b=>b.classList.add('active'))" data-lang="es">🇪🇸</button>
+      <button onclick="setLang('en');document.querySelectorAll('.lang-mobile-header button,.mobile-lang button').forEach(b=>b.classList.remove('active'));document.querySelectorAll('[data-lang=en]').forEach(b=>b.classList.add('active'))" data-lang="en">🇬🇧</button>
+      <button onclick="setLang('fr');document.querySelectorAll('.lang-mobile-header button,.mobile-lang button').forEach(b=>b.classList.remove('active'));document.querySelectorAll('[data-lang=fr]').forEach(b=>b.classList.add('active'))" data-lang="fr">🇫🇷</button>
+      <button onclick="setLang('ru');document.querySelectorAll('.lang-mobile-header button,.mobile-lang button').forEach(b=>b.classList.remove('active'));document.querySelectorAll('[data-lang=ru]').forEach(b=>b.classList.add('active'))" data-lang="ru">🇷🇺</button>
+    </div>
     <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menú">
       <span></span><span></span><span></span>
     </button>
